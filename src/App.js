@@ -20,7 +20,7 @@ const App = () => {
   }, []);
 
   const fetchTasks = async () => {
-    const res = await fetch('/tasks');
+    const res = await fetch('https://spring-todo-1.herokuapp.com/tasks');
     const data = res.json();
     return data;
   }
@@ -31,7 +31,7 @@ const App = () => {
 
   const onDeleteTask = async (id) => {
 
-    await fetch(`/tasks/${id}`, {
+    await fetch(`https://spring-todo-1.herokuapp.com/tasks/${id}`, {
       method: 'DELETE',
     })
 
@@ -56,7 +56,7 @@ const App = () => {
     let n = searchString.length;
     searchString = searchString.toLowerCase();
 
-    await fetch(`/tasks/name/${searchString}`, {
+    await fetch(`https://spring-todo-1.herokuapp.com/tasks/name/${searchString}`, {
       method: 'GET',
     });
 
@@ -73,7 +73,7 @@ const App = () => {
 
   const toggleTaskCompletion = async (id) => {
 
-    await fetch(`/tasks/${id}`, {
+    await fetch(`https://spring-todo-1.herokuapp.com/tasks/${id}`, {
       method: 'PUT'
     })
 
@@ -89,7 +89,7 @@ const App = () => {
 
   const onAddingTask = async (taskPart) => {
 
-    const res = await fetch(`/tasks`, {
+    const res = await fetch(`https://spring-todo-1.herokuapp.com/tasks`, {
       method: 'POST',
       body: JSON.stringify(
         taskPart
